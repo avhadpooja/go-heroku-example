@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"html/template"
 )
 
 func main() {
@@ -16,5 +17,7 @@ func main() {
 }
 
 func hello(res http.ResponseWriter, req *http.Request) {
-	fmt.Fprintln(res, "hello, heroku")
+	t, _ := template.ParseFiles("client.html")
+        t.Execute(res, nil)
+	//fmt.Fprintln(res, "hello, heroku")
 }

@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/", hello)
+	http.HandleFunc("/#", hello)
 	fmt.Println("listening...")
 	err := http.ListenAndServe(":"+os.Getenv("PORT"), nil)
 	if err != nil {

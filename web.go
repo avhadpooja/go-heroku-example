@@ -1,14 +1,12 @@
 package main
 
 import (
-	"crypto/md5"
+	
 	"fmt"
 	"net/http"
 	"os"
 	"html/template"
-	"io"
-	"strconv"
-	"time"
+	
 )
 
 func main() {

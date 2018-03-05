@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/", hello)
+	http.HandleFunc("/upload", hello)
 	fmt.Println("listening...")
 	err := http.ListenAndServe(":"+os.Getenv("PORT"), nil)
 	if err != nil {
@@ -28,15 +28,15 @@ func main() {
 
 func hello(w http.ResponseWriter, r *http.Request) {
 	
-	file, handler, err := r.FormFile("myfile")
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	defer file.close()
-	
-	fmt.Fprintf(w, "%v", handler.Header)
-	f, err := os.OpenFile("./test/"+handler.Filename, os.O_WRONLY|os.O_CREATE, 0666)
+	file, handler, err := r.FormFile("uploadfile")
+        if err != nil {
+            fmt.Println(err)
+            return
+        }
+        defer file.Close()
+ 
+        fmt.Fprintf(w, "%v", handler.Header)
+        f, err := os.OpenFile("./test/"+handler.Filename, os.O_WRONLY|os.O_CREATE, 0666)
         if err != nil {
             fmt.Println(err)
             return

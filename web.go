@@ -1,14 +1,14 @@
 package main
 
 import (
-	"crypto/md5"
+	//"crypto/md5"
 	"io"
-	"strconv"
-	"time"
+	//"strconv"
+	//"time"
 	"fmt"
 	"net/http"
 	"os"
-	"html/template"
+	//"html/template"
 	
 )
 

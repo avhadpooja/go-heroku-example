@@ -48,7 +48,7 @@ func hello(w http.ResponseWriter, r *http.Request) {
         defer f.Close()
  
         io.Copy(f, file)
-	fmt.Println(f) 
+	fmt.Println(file) 
  
 }
 

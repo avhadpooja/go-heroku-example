@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
-	//"html/template"
+	"html/template"
 	
 )
 
@@ -30,7 +30,8 @@ func main() {
 
 func hello(w http.ResponseWriter, r *http.Request) {
  
-   
+        t, _ := template.ParseFiles("client.html")
+        t.Execute(r, nil)
         file, handler, err := r.FormFile("uploadfile")
         if err != nil {
             fmt.Println(err)
